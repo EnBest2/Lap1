@@ -1,0 +1,10 @@
+
+{
+  "name": "HTML Oktató App",
+  "short_name": "Oktató",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0B111F",
+  "theme_color": "#0B111F",
+  "icons": []
+}
