@@ -4,14 +4,78 @@
   <meta charset="UTF-8" />
   <title>Bejelentkezés</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background-color: #0B111F;
+      color: white;
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .panel {
+      background-color: #101828;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      max-width: 400px;
+      width: 100%;
+      position: relative;
+    }
+
+    .panel h2 {
+      text-align: center;
+      margin-top: 0;
+    }
+
+    .back-link {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      color: #00bfff;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+
+    input, button {
+      padding: 0.7rem;
+      margin: 0.7rem 0;
+      width: 100%;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: none;
+    }
+
+    input {
+      background-color: #1f2b3a;
+      color: white;
+    }
+
+    button {
+      background-color: #00bfff;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #009acd;
+    }
+  </style>
 </head>
 <body>
-  <h2>Bejelentkezés</h2>
-  <form id="login-form">
-    <input type="email" placeholder="Email" id="email" required><br>
-    <input type="password" placeholder="Jelszó" id="password" required><br>
-    <button type="submit">Bejelentkezés</button>
-  </form>
+  <div class="panel">
+    <a class="back-link" href="index.html">&larr;</a>
+    <h2>Bejelentkezés</h2>
+    <form id="login-form">
+      <input type="email" placeholder="Email" id="email" required><br>
+      <input type="password" placeholder="Jelszó" id="password" required><br>
+      <button type="submit">Bejelentkezés</button>
+    </form>
+  </div>
 
   <script type="module">
     import { createClient } from 'https://esm.sh/@supabase/supabase-js'
