@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <title>Regisztráció</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h2>Regisztráció</h2>
+  <form id="register-form">
+    <input type="email" placeholder="Email" id="email" required><br>
+    <input type="password" placeholder="Jelszó" id="password" required><br>
+    <button type="submit">Regisztráció</button>
+  </form>
+
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js'
+
+    const supabase = createClient(
+      'https://olqqvispwrtsdymwltwr.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9scXF2aXNwd3J0c2R5bXdsdHdyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM0MjcxMDMsImV4cCI6MjA1OTAwMzEwM30.kxrh_RBj5HYO8rnXYrlIyPaqMyobkD6bQK3wFZE-ZqE'
+    )
+
+    document.getElementById("register-form").addEventListener("submit", async (e) => {
+      e.preventDefault()
+      const email = document.getElementById("email").value
+      const password = document.getElementById("password").value
+      const { error } = await supabase.auth.signUp({ email, password })
+      if (error) {
+        alert("Hiba: " + error.message)
+      } else {
+        alert("Sikeres regisztráció! Jelentkezz be.")
+        window.location.href = "login.html"
+      }
+    })
+  </script>
+</body>
+</html>
